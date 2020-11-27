@@ -1,0 +1,50 @@
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+
+// customization
+$theme-colors: (
+        primary: #1f96f2
+);
+
+$body-bg: #e0e6ec;
+
+$btn-border-radius-lg: 34px;
+$btn-padding-x-lg: 18px;
+$btn-padding-y-lg: 18px;
+
+$input-height-lg: 68px;
+$input-padding-x-lg: 30px;
+$input-border-radius-lg: 34px;
+
+$enable-shadows: true;
+$btn-box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.35);
+
+// modules
+@import "node_modules/bootstrap/scss/bootstrap-reboot";
+@import "node_modules/bootstrap/scss/bootstrap-grid";
+@import "node_modules/bootstrap/scss/forms";
+@import "node_modules/bootstrap/scss/buttons";
+@import "node_modules/bootstrap/scss/nav";
+
+// advanced customization
+.btn {
+  text-transform: uppercase;
+}
+
+.btn-secondary {
+  color: #647074;
+  background-color: #eaf0f6;
+}
+
+.btn-lg {
+  font-weight: 600;
+}
+
+.btn-circle {
+  width: 68px;
+  height: 68px;
+  padding: 9px 0px;
+  border-radius: 39px;
+  text-align: center;
+  font-size: 30px;
+}
