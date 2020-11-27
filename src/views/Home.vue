@@ -8,6 +8,7 @@
       <li>Tutorial end, font awesome setup, bootstrap customization, html = 2.5h</li>
       <li>Change detection research = 4.5h</li>
       <li>First version, some time to think about save+reset vs refresh proof form = 2h</li>
+      <li>Separate component = 1h</li>
     </ul>
   </div>
 </template>

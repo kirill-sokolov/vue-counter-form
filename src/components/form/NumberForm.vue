@@ -3,18 +3,23 @@
 <script lang="ts">
 import { reactive } from 'vue';
 import { Options, Vue } from 'vue-class-component';
+import CounterComponent from '@/components/form/Counter.vue';
+
+export interface Counter {
+  count: number | null;
+}
 
 @Options({
-  props: {
-    data: Array,
+  components: {
+    CounterComponent,
   },
 })
 export default class NumberForm extends Vue {
   formName = 'form-counters'
   isResetButtonActive = !!JSON.parse(localStorage.getItem(this.formName) as string)
   counters: any
-  defaultCounter = { count: null }
-  defaultCounterOnRestore = { count: 0 }
+  defaultCounter: Counter = { count: null }
+  defaultCounterOnRestore: Counter = { count: 0 }
 
   data() {
     return {
@@ -38,16 +43,6 @@ export default class NumberForm extends Vue {
     this.counters =
       JSON.parse(localStorage.getItem(this.formName) as string)
       || reactive([{ ...this.defaultCounterOnRestore }])
-  }
-
-  increase(counter: any) {
-    counter.count++;
-    this.activateReset();
-  }
-
-  decrease(counter: any) {
-    counter.count--;
-    this.activateReset();
   }
 }
 </script>

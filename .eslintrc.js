@@ -19,8 +19,10 @@ module.exports = {
     "semi": 'off',
     "comma-dangle": 'off',
     "no-param-reassign": 'off',
+    "object-curly-spacing": 'off',
     "lines-between-class-members": 'warn',
     "operator-linebreak": 'warn',
+    "quotes": 'warn',
   },
   overrides: [
     {
