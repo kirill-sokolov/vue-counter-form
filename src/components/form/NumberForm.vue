@@ -10,6 +10,11 @@ export interface Counter {
   count: number | null;
 }
 
+export interface Message {
+  type: string;
+  text: string;
+}
+
 @Options({
   components: {
     CounterComponent,
@@ -17,12 +22,13 @@ export interface Counter {
 })
 export default class NumberForm extends Vue {
   static MESSAGE_TIMEOUT = 3000
+  static API_URL = 'https://vue-counter-form-db.herokuapp.com/counters'
   storageName = 'form-counters'
   isResetButtonActive = !!JSON.parse(localStorage.getItem(this.storageName) as string)
   counters: Array<Counter> = reactive([])
   defaultCounter: Counter = { count: null }
   defaultCounterOnRestore: Counter = { count: 0 }
-  message: any = null
+  message: Message | null = null
 
   data() {
     return {
@@ -50,7 +56,7 @@ export default class NumberForm extends Vue {
   }
 
   save() {
-    axios.put('http://localhost:3000/counters', { data: this.counters })
+    axios.put(NumberForm.API_URL, { data: this.counters })
       .then((response) => {
         this.message = { text: 'save success', type: 'success' }
       })
@@ -65,7 +71,7 @@ export default class NumberForm extends Vue {
   }
 
   restore() {
-    axios.get('http://localhost:3000/counters')
+    axios.get(NumberForm.API_URL)
       .then((response) => {
         if (response.data.data.length) {
           this.counters = response.data.data

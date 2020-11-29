@@ -15,6 +15,11 @@ npm run serve
 npm run build
 ```
 
+### For runnig on heroku
+```
+npm run start
+```
+
 ### Run your unit tests
 ```
 npm run test:unit
