@@ -1,40 +1,44 @@
-<template>
-  <div class="form-group col-md-6">
-    <input v-model.number="counter.count"
-           @input="onAction()"
-           type="number"
-           class="form-control form-control-lg"
-           placeholder="Enter number">
-  </div>
-  <div class="form-group col-6 col-md-3">
-    <button class="btn btn-lg btn-block btn-outline-primary" @click="increase()">Increase</button>
-  </div>
-  <div class="form-group col-6 col-md-3">
-    <button class="btn btn-lg btn-block btn-outline-primary" @click="decrease()">Decrease</button>
-  </div>
-</template>
+<template src="./Counter.html" lang="html"></template>
 
 <script>
-import {Options, Vue} from 'vue-class-component';
-import {Counter} from './NumberForm.vue';
+import {Options, Vue} from 'vue-class-component'
+import {Counter} from './NumberForm.vue'
 
 @Options({
   props: {
     counter: Counter,
-    onAction: Function
+    showRemoveButton: Boolean,
+    onAction: Function,
+    onRemove: Function
   }
 })
 export default class CounterComponent extends Vue {
   increase() {
-    this.counter.count++;
-    this.onAction();
+    this.counter.count++
+    this.onAction()
   }
 
   decrease() {
-    this.counter.count--;
-    this.onAction();
+    this.counter.count--
+    this.onAction()
   }
 }
 </script>
 
-<style scoped></style>
+<style scoped lang="scss">
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+
+.counter {
+  &__input-block {
+    position: relative;
+  }
+
+  &__remove-button {
+    position: absolute;
+    right: $form-grid-gutter-width / 2;
+    top: 0;
+    transform: scale(0.75);
+  }
+}
+</style>

@@ -20,6 +20,7 @@ module.exports = {
     "comma-dangle": 'off',
     "no-param-reassign": 'off',
     "object-curly-spacing": 'off',
+    "no-unused-expressions": 'warn',
     "lines-between-class-members": 'warn',
     "operator-linebreak": 'warn',
     "quotes": 'warn',
