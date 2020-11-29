@@ -10,6 +10,7 @@
       <li>First version, some time to think about save+reset vs refresh proof form = 2h</li>
       <li>Separate component = 1h</li>
       <li>Git and Heroku = 1h</li>
+      <li>Tunings = 4h</li>
     </ul>
   </div>
 </template>
