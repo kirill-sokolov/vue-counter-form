@@ -75,8 +75,11 @@ export default class NumberForm extends Vue {
       .then((response) => {
         if (response.data.data.length) {
           this.counters = response.data.data
-          this.saveRefreshProofData()
+        } else {
+          this.counters = [{ ...this.defaultCounterOnRestore }]
         }
+
+        this.saveRefreshProofData()
       })
       .catch((error) => {
         console.log('error', error)
@@ -97,7 +100,7 @@ export default class NumberForm extends Vue {
 
   private loadRefreshProofData() {
     return JSON.parse(localStorage.getItem(this.storageName) as string)
-      || reactive([{ ...this.defaultCounterOnRestore }])
+      || reactive([{ ...this.defaultCounter }])
   }
 }
 </script>
